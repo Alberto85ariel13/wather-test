@@ -1,0 +1,10 @@
+.App {
+  background: #DCDFE0;
+  height: 100vh;
+}
+
+.App-header {
+  background: #DCDFE0;
+  height: 119px;
+  border-bottom: 1px solid black;
+}
