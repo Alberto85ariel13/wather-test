@@ -1,0 +1,22 @@
+.containerSwitch {
+    width: 116px;
+    height: 51px;
+    background: #99A4A9;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Roboto';
+    font-size: 20px;
+    color: rgba(2, 48, 71, 0.61);
+    align-items: center;
+    position: absolute;
+    cursor: pointer;
+}
+.switch {
+    background: #ECECEC;
+    width: 44px;
+    height: 44px;
+    border-radius: 1000px;
+    position: absolute;
+}

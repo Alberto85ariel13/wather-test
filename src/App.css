@@ -1,17 +1,76 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+body {
+  background: #DCDFE0;
+}
+
 .App {
   height: 100vh;
-  background: #DCDFE0;
 }
 
 .App-header {
   height: 119px;
-  border-bottom: 1px solid black;
-  /* min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white; */
+  padding-right: 108px;
 }
 
+p, h2 {
+  margin: 0;
+}
+
+.ContainerSearch {
+  height: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ContainerCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 197px;
+  margin-bottom: -65px;
+}
+
+.button {
+  width: 219px;
+  height: 59px;
+  background: #219EBC;
+  border-radius: 60px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 58px;
+  cursor: pointer;
+}
+
+.containerNoCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.textNoCard {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 47px;
+  color: #9FAAAE;
+  margin-left: 20px;
+  margin-top: -32px;
+}
+
+.iconNoCard {
+  font-size: 100px;
+  color: #9FAAAE;
+}
