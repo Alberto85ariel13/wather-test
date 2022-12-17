@@ -10,9 +10,9 @@ body {
 .App-header {
   height: 119px;
   display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   padding-right: 108px;
 }
 
@@ -47,6 +47,7 @@ p {
   align-items: center;
   justify-content: center;
   margin-left: 58px;
+  cursor: pointer;
 }
 
 .containerNoCard {

@@ -1,6 +1,7 @@
-import { useState } from 'react';
 import styles from './Card.module.css';
-const Card = ({latitude, longitude}: {latitude: number, longitude: number}) => {
+import ICard from './ICard'
+
+const Card = ({name, weather, latitude, longitude, temps, celsius}: ICard) => {
     return (
         <div className={styles.containerCard}>
         </div>
