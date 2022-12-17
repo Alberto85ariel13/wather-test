@@ -11,7 +11,7 @@ const SwitchGrade = ({defaultCelsius, changeCelsius}: {defaultCelsius: boolean, 
         <div className={styles.containerSwitch} onClick={putCelsius}>
             <p>F</p>
             <p>C</p>
-            <div className={styles.switch} style={{marginLeft: [-1,1][+celsius]*50}}/>
+            <div className={styles.switch} style={{marginLeft: [1,-1][+celsius]*50}}/>
         </div>
     )
 

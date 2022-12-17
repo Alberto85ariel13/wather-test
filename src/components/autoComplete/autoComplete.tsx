@@ -6,39 +6,38 @@ type IItem = {
     name?: string;
 }    
 const AutoComplete = ({changeCity}: {changeCity: Function}) => {
-        const items: IItem[] = cities;
+  const items: IItem[] = cities;
+  const handleOnSelect = (item: IItem) => {
+    changeCity(item.name)
+  }
 
-      const handleOnSelect = (item: IItem) => {
-        changeCity(item.name)
-      }
-    
-  
-      const formatResult = (item: IItem) => {
-        return (
-            <span style={{ display: 'block', textAlign: 'left' }}>{item.name}</span>
-        )
-      }
+  const formatResult = (item: IItem) => {
     return (
-        <div style ={{width: '507px'}}>
-            <ReactSearchAutocomplete
-            items={items}
-            onSelect={handleOnSelect}
-            autoFocus
-            formatResult={formatResult}
-            showIcon={false}
-            showClear={false}
-            styling={
-                  {
-                    backgroundColor: "#ECECEC",
-                    borderRadius: "16px",
-                    height: "59px"
-                  }
-                }
-            placeholder={'Enter a city name'}
-            />
-      </div>
+        <span style={{ display: 'block', textAlign: 'left' }}>{item.name}</span>
     )
-
+  }
+  // console.log("esto:", inputSearchString);
+  return (
+      <div style ={{width: '507px'}}>
+          <ReactSearchAutocomplete
+          items={items}
+          onSelect={handleOnSelect}
+          autoFocus
+          formatResult={formatResult}
+          // inputSearchString={inputSearchString} 
+          showIcon={false}
+          showClear={false}
+          styling={
+                {
+                  backgroundColor: "#ECECEC",
+                  borderRadius: "16px",
+                  height: "59px"
+                }
+              }
+          placeholder={'Enter a city name'}
+          />
+    </div>
+  )
 };
 
 export default AutoComplete;

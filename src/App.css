@@ -16,7 +16,7 @@ body {
   padding-right: 108px;
 }
 
-p {
+p, h2 {
   margin: 0;
 }
 

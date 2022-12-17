@@ -1,49 +1,35 @@
 import './App.css';
-import { useState } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
 import SwitchGrade from './components/switch/switch';
 import AutoComplete from './components/autoComplete/autoComplete';
 import Card from './components/card/card';
 import ICard from './components/card/ICard';
+import { getDataCard } from './services/weatherService';
 
-const API_SEARCH_URL = 'https://geocoding-api.open-meteo.com/v1/search';
-const API_FORECAST_URL = 'https://api.open-meteo.com/v1/forecast';
 
 function App() {
   const [celsius, setCelsius] = useState(true);
   const [cards, setCards] = useState<ICard[]>([]);
   const [valueSearch, setValueSearch] = useState('');
+  // const [inputSearch, setInputSearch] = useState('');
+  const changeCelsius = (pCelsius: boolean) => {
+    setCelsius(pCelsius);
+    setCards([...(cards.map(card => ({...card, celsius: pCelsius})))])
+  }
+  // useEffect(() => {
+  //   setCards([...(cards.map(card => ({...card, celsius})))])
+  // }, [celsius]);
 
   const getSearchCard = () => {
     if(valueSearch?.length) {
-      const searchParams = new URLSearchParams({name: valueSearch});
-
-      axios.get(`${API_SEARCH_URL}?${searchParams.toString()}`).then(resSearch => {
-        const city = resSearch?.data?.results;
-        if(city?.length) {
-          const {latitude,longitude} = city[0];
-          const tempParams = new URLSearchParams({latitude,longitude, hourly: 'temperature_2m'});
-
-          axios.get(`${API_FORECAST_URL}?${tempParams.toString()}`).then(resTemp => {
-            const tempArray = resTemp?.data?.hourly?.temperature_2m;
-            const temps = [tempArray[0],tempArray[24], tempArray[48], tempArray[72], tempArray[96]]
-            const weatherParams = new URLSearchParams({latitude,longitude, hourly: 'weathercode'});
-            
-            axios.get(`${API_FORECAST_URL}?${weatherParams.toString()}`).then(resWeather => {
-              const weatherArray = resWeather?.data?.hourly?.weathercode;
-              const weather = weatherArray[0];
-              const card:ICard = {latitude, longitude, temps, weather, celsius, name: valueSearch};
-              setCards([...cards, card]);
-            })
-          })
-        }
-      })
+      // setInputSearch('');
+      getDataCard(valueSearch).then(card => card && setCards([...cards, {...card, celsius}]))
     }
   }
   return (
     <div className="App">
       <header className="App-header">
-          <SwitchGrade defaultCelsius={true} changeCelsius ={setCelsius} ></SwitchGrade>
+          <SwitchGrade defaultCelsius={true} changeCelsius ={changeCelsius} ></SwitchGrade>
       </header>
       <div className="ContainerSearch">
           <AutoComplete changeCity={setValueSearch}/>
