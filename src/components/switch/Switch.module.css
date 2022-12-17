@@ -18,5 +18,5 @@
     width: 44px;
     height: 44px;
     border-radius: 1000px;
-    position: fixed;
+    position: absolute;
 }

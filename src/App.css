@@ -1,4 +1,5 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
 body {
   background: #DCDFE0;
 }
@@ -34,6 +35,7 @@ p, h2 {
   justify-content: space-around;
   align-items: center;
   margin-top: 197px;
+  margin-bottom: -65px;
 }
 
 .button {

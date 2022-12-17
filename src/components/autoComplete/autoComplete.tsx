@@ -16,7 +16,6 @@ const AutoComplete = ({changeCity}: {changeCity: Function}) => {
         <span style={{ display: 'block', textAlign: 'left' }}>{item.name}</span>
     )
   }
-  // console.log("esto:", inputSearchString);
   return (
       <div style ={{width: '507px'}}>
           <ReactSearchAutocomplete
@@ -24,7 +23,6 @@ const AutoComplete = ({changeCity}: {changeCity: Function}) => {
           onSelect={handleOnSelect}
           autoFocus
           formatResult={formatResult}
-          // inputSearchString={inputSearchString} 
           showIcon={false}
           showClear={false}
           styling={
